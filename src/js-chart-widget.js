@@ -30,8 +30,8 @@
     function main(){
         _chart = Chart;
 
-        var ctx = document.getElementById("demoChart1");
-        var chart = new Chart(ctx, {
+        var element = document.getElementById("demoChart1");
+        var chart = new Chart(element, {
             type: 'bar',
             data: {
                 labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
