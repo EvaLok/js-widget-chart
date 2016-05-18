@@ -35,7 +35,7 @@
 
         for( var i = 0; i < elementsLength; i++ ){
             new Chart(elements[i], {
-                type: 'bar',
+                type: 'line',
                 data: {
                     labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
                     datasets: [{
@@ -54,7 +54,5 @@
                 }
             });
         }
-
-
     }
 })();
