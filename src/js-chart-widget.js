@@ -30,25 +30,31 @@
     function main(){
         _chart = Chart;
 
-        var element = document.getElementById("demoChart1");
-        var chart = new Chart(element, {
-            type: 'bar',
-            data: {
-                labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-                datasets: [{
-                    label: '# of Votes',
-                    data: [12, 19, 3, 5, 2, 3]
-                }]
-            },
-            options: {
-                scales: {
-                    yAxes: [{
-                        ticks: {
-                            beginAtZero:true
-                        }
+        var elements = document.getElementsByClassName("js-chart-widget");
+        var elementsLength = elements.length;
+
+        for( var i = 0; i < elementsLength; i++ ){
+            new Chart(elements[i], {
+                type: 'bar',
+                data: {
+                    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+                    datasets: [{
+                        label: '# of Votes',
+                        data: [12, 19, 3, 5, 2, 3]
                     }]
+                },
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero:true
+                            }
+                        }]
+                    }
                 }
-            }
-        });
+            });
+        }
+
+
     }
 })();
