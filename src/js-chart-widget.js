@@ -1,4 +1,7 @@
 (function(){
+    var chartLibLocation = (
+        'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.js'
+    );
     var _chart;
 
     init();
@@ -7,8 +10,7 @@
         if( typeof Chart !== 'object' ) {
             var script_tag = document.createElement('script');
             script_tag.setAttribute("type","text/javascript");
-            script_tag.setAttribute("src",
-                "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.js");
+            script_tag.setAttribute("src", chartLibLocation);
 
             // non-standard browsers
             if (script_tag.readyState) {
