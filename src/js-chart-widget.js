@@ -29,24 +29,24 @@
         }
 
         loadData(ids, function(){
-            renderCharts(elements);
+            renderCharts(elements, ids);
         });
     }
 
-    function renderCharts( elements ){
+    function renderCharts( elements, ids ){
         var elementsLength = elements.length;
 
         for( var i = 0; i < elementsLength; i++ ){
             new Chart(elements[i], {
                 type: 'line',
                 data: {
-                    labels: data[elements[i].getAttribute('data-identifier')].labels,
+                    labels: data[ids[i]].labels,
                     datasets: [{
                         label: (
                             '# of Votes for element '
-                            + elements[i].getAttribute('data-identifier')
+                            + ids[i]
                         ),
-                        data: data[elements[i].getAttribute('data-identifier')].points
+                        data: data[ids[i]].points
                     }]
                 },
                 options: {
@@ -95,8 +95,6 @@
                 for( var k in json ){
                     data[k] = json[k];
                 }
-
-                console.log(data);
 
                 callback();
             }
