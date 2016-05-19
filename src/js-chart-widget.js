@@ -43,7 +43,7 @@
                     labels: data[ids[i]].labels,
                     datasets: [{
                         label: (
-                            '# of Votes for element '
+                            'a chart for element '
                             + ids[i]
                         ),
                         data: data[ids[i]].points
