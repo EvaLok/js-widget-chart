@@ -4,26 +4,15 @@
     );
     var _chart;
 
+    var dataLocation = '/fake-data-source.js';
+    var data = {};
+    var dataVar = '';
+
     init();
 
     function init(){
         if( typeof Chart !== 'object' ) {
-            var script_tag = document.createElement('script');
-            script_tag.setAttribute("type","text/javascript");
-            script_tag.setAttribute("src", chartLibLocation);
-
-            // non-standard browsers
-            if (script_tag.readyState) {
-                script_tag.onreadystatechange = function () { // For old versions of IE
-                    if (this.readyState == 'complete' || this.readyState == 'loaded') {
-                        main();
-                    }
-                };
-            } else { // standard browsers
-                script_tag.onload = main;
-            }
-            // Try to find the head, otherwise default to the documentElement
-            (document.getElementsByTagName("head")[0] || document.documentElement).appendChild(script_tag);
+            loadScript(chartLibLocation, main);
         } else {
             main();
         }
@@ -59,5 +48,38 @@
                 }
             });
         }
+    }
+
+
+
+    function fetchData(){
+
+    }
+
+    function renderCharts(){
+
+    }
+
+    function loadScript(script, callback){
+        var script_tag = document.createElement('script');
+        script_tag.setAttribute("type","text/javascript");
+        script_tag.setAttribute("src", script);
+
+        // non-standard browsers
+        if (script_tag.readyState) {
+            script_tag.onreadystatechange = function () { // For old versions of IE
+                if (this.readyState == 'complete' || this.readyState == 'loaded') {
+                    callback();
+                }
+            };
+        } else { // standard browsers
+            script_tag.onload = callback;
+        }
+
+        // Try to find the head, otherwise default to the documentElement
+        (
+            document.getElementsByTagName("head")[0]
+            || document.documentElement
+        ).appendChild(script_tag);
     }
 })();
