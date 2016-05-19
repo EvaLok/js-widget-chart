@@ -1,0 +1,14 @@
+{
+  "123": {
+    "labels": ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    "points": [12, 19, 3, 5, 2, 3]
+  },
+  "abc": {
+    "labels": ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    "points": [12, 19, 3, 5, 2, 3]
+  },
+  "a1Xf541": {
+    "labels": ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    "points": [2, 3, 6, 25, 1, 15]
+  }
+}
