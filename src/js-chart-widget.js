@@ -88,7 +88,7 @@
     function loadData(ids, callback){
         var xobj = new XMLHttpRequest();
         xobj.overrideMimeType("application/json");
-        xobj.open('GET', dataLocation, true);
+        xobj.open('GET', dataLocation + '?ids=' + ids.join(','), true);
         xobj.onreadystatechange = function() {
             if (xobj.readyState == 4 && xobj.status == "200") {
                 var json = JSON.parse(xobj.responseText);
