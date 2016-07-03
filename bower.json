@@ -1,0 +1,15 @@
+{
+  "name": "js-widget-chart",
+  "homepage": "https://github.com/EvaLok/js-widget-chart",
+  "authors": [
+    "EvaLok <squidstock@hotmail.com>"
+  ],
+  "description": "js widget for charting",
+  "main": "src/js-chart-widget.js",
+  "moduleType": [],
+  "keywords": [
+    "widget",
+    "chart"
+  ],
+  "license": "MIT"
+}

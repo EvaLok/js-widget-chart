@@ -23,12 +23,26 @@
         var elements = document.getElementsByClassName("js-chart-widget");
         var elementsLength = elements.length;
         var ids = [];
+        var requestIds = [];
 
         for( var i = 0; i < elementsLength; i++ ){
-            ids.push(elements[i].getAttribute('data-identifier'));
+            var identifier = elements[i].getAttribute('data-identifier');
+            var rawData = elements[i].getAttribute('data-raw');
+
+            // use raw data
+            if( rawData ){
+                data[identifier] = JSON.parse(rawData);
+            }
+
+            // load from resource
+            else {
+                requestIds.push(identifier);
+            }
+
+            ids.push(identifier);
         }
 
-        loadData(ids, function(){
+        loadData(requestIds, function(){
             renderCharts(elements, ids);
         });
     }
@@ -37,6 +51,8 @@
         var elementsLength = elements.length;
 
         for( var i = 0; i < elementsLength; i++ ){
+            var identifier = elements[i].getAttribute('data-identifier');
+
             new Chart(elements[i], {
                 type: 'line',
                 data: {
