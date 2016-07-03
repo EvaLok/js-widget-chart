@@ -1,3 +1,5 @@
+var __js_chart_widget = {};
+
 (function(){
     var chartLibLocation = (
         'https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.1.3/Chart.js'
@@ -6,6 +8,9 @@
 
     var dataLocation = 'fake-data-source.json';
     var data = {};
+    __js_chart_widget = {
+        init: init
+    };
 
     init();
 
