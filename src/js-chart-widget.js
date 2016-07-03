@@ -42,9 +42,13 @@
             ids.push(identifier);
         }
 
-        loadData(requestIds, function(){
+        if( requestIds.length > 0 ){
+            loadData(requestIds, function(){
+                renderCharts(elements, ids);
+            });
+        } else {
             renderCharts(elements, ids);
-        });
+        }
     }
 
     function renderCharts( elements, ids ){
