@@ -61,30 +61,31 @@ var __js_chart_widget = {};
 
         for( var i = 0; i < elementsLength; i++ ){
             var identifier = elements[i].getAttribute('data-identifier');
+            var chartType = elements[i].getAttribute('data-chart-type');
 
-            new Chart(elements[i], {
-                type: 'line',
-                data: {
-                    labels: data[ids[i]].labels,
-                    datasets: [{
-                        label: (
-                            'a chart for element '
-                            + ids[i]
-                        ),
-                        data: data[ids[i]].points
-                    }]
-                },
-                options: {
-                    scales: {
-                        yAxes: [{
-                            ticks: {
-                                beginAtZero:true
-                            }
-                        }]
-                    }
-                }
-            });
+            switch( chartType ){
+                default:
+                    renderChartDefault({
+                        element: elements[i],
+                        title: ids[i],
+                        labels: data[ids[i]].labels,
+                        points: data[ids[i]].points
+                    });
+            }
         }
+    }
+
+    function renderChartDefault( params ){
+        new Chart(params.element, {
+            type: 'line',
+            data: {
+                labels: params.labels,
+                datasets: [{
+                    label: params.title,
+                    data: params.points
+                }]
+            }
+        });
     }
 
     function loadScript(script, callback){
