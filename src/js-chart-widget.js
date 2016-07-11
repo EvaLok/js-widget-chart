@@ -71,7 +71,8 @@ var __js_chart_widget = {};
                         element: element,
                         type: params.type,
                         labels: params.labels,
-                        datasets: params.datasets
+                        datasets: params.datasets,
+                        options: params.options
                     });
                     break;
 
