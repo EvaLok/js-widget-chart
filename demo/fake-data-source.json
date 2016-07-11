@@ -8,7 +8,18 @@
     "points": [50, 19, 3, 5, 50]
   },
   "a1Xf541": {
+    "type": "line",
     "labels": ["look", "at", "my", "horse", "my", "horse", "is", "amazing"],
-    "points": [2, 3, 6, 25, 1, 15, 50, 100]
+    "datasets": [{
+      "label": "line 1",
+      "data": [2, 3, 6, 25, 1, 15, 50, 100],
+      "borderColor": "rgba(0,200,0,0.4)",
+      "backgroundColor": "rgba(0,200,0,0.4)"
+    }, {
+      "label": "line 2",
+      "data": [50, 19, 3, 5, 50, 43, 3, 26],
+      "borderColor": "rgba(100,100,100,0.4)",
+      "backgroundColor": "rgba(100,100,100,0.4)"
+    }]
   }
 }

@@ -60,19 +60,47 @@ var __js_chart_widget = {};
         var elementsLength = elements.length;
 
         for( var i = 0; i < elementsLength; i++ ){
-            var identifier = elements[i].getAttribute('data-identifier');
-            var chartType = elements[i].getAttribute('data-chart-type');
+            var element = elements[i];
+            var identifier = element.getAttribute('data-identifier');
+            var chartType = element.getAttribute('data-chart-type');
+            var params = data[ids[i]];
 
             switch( chartType ){
+                case 'chartjs':
+                    renderChartChartjs({
+                        element: element,
+                        type: params.type,
+                        labels: params.labels,
+                        datasets: params.datasets
+                    });
+                    break;
+
                 default:
                     renderChartDefault({
-                        element: elements[i],
+                        element: element,
                         title: ids[i],
-                        labels: data[ids[i]].labels,
-                        points: data[ids[i]].points
+                        labels: params.labels,
+                        points: params.points
                     });
             }
         }
+    }
+
+    function renderChartChartjs( _params ){
+        var params = _params;
+
+        if( typeof params.options !== 'object' ){
+            params.options = {};
+        }
+
+        new Chart(params.element, {
+            type: 'line',
+            data: {
+                labels: params.labels,
+                datasets: params.datasets
+            },
+            options: params.options
+        });
     }
 
     function renderChartDefault( params ){
